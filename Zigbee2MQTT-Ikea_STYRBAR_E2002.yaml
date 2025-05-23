@@ -6,6 +6,11 @@ blueprint:
       name: "STYRBAR E2002 Remote Control"
       selector:
         device: {}
+    on:
+      name: "on"
+      default: []
+      selector:
+        action: {}
 
 triggers:
   trigger: state
