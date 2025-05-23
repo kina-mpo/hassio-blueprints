@@ -1,6 +1,6 @@
 blueprint:
 mode: restart
-  name: Z2M - Ikea STYRBAR E2002 Remote Control
+  name: Z2M Ikea STYRBAR E2002 Remote Control
   domain: automation
   input:
     device:
