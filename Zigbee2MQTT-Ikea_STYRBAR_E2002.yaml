@@ -6,16 +6,3 @@ blueprint:
       name: "STYRBAR E2002 Remote Control"
       selector:
         device: {}
-    on:
-      name: "on"
-      selector:
-        action: {}
-
-triggers:
-  trigger: state
-  entity_id: !input device
-
-action:
-  - choose:
-      - conditions: "{{ command == 'on' }}"
-        sequence: !input on
