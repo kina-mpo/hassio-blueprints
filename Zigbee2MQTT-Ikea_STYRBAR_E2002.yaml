@@ -1,0 +1,24 @@
+blueprint:
+mode: restart
+  name: E2002 Remote Control
+  domain: automation
+#  input:
+#    device:
+#      name: STYRBAR E2002 Remote Control
+#      selector:
+#        device: {}
+
+#trigger:
+#  - platform: device
+#    device_id: !input device
+#    domain: mqtt
+#    type: action
+#    subtype: "on"
+#    id: on
+
+#action:
+#  - choose:
+#      - conditions:
+#          - condition: trigger
+#            id: on
+#        sequence: !input on
