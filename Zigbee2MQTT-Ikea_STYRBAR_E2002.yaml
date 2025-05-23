@@ -1,5 +1,5 @@
 blueprint:
-mode: restart
+  mode: restart
   name: E2002 Remote Control
   domain: automation
 #  input:
