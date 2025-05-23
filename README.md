@@ -1,1 +1,1 @@
-# hassio-blueprints
+# HomeAssistant blueprints collection
