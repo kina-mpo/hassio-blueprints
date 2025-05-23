@@ -10,12 +10,12 @@ blueprint:
           domain: "sensor"
           multiple: "false"
     on:
-      name: "on"
+      name: on
       default: []
       selector:
         action: {}
     off:
-      name: "off"
+      name: off
       default: []
       selector:
         action: {}
