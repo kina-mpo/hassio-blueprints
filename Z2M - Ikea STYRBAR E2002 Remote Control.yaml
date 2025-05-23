@@ -1,10 +1,10 @@
 blueprint:
 mode: restart
-  name: "Z2M - Ikea STYRBAR E2002 Remote Control"
-  domain: "automation"
+  name: Z2M - Ikea STYRBAR E2002 Remote Control
+  domain: automation
   input:
     device:
-      name: "STYRBAR E2002 Remote Control"
+      name: STYRBAR E2002 Remote Control
       selector:
         device: {}
 
