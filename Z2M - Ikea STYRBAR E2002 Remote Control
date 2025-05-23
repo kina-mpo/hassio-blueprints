@@ -1,0 +1,97 @@
+blueprint:
+  name: "Z2M - Ikea STYRBAR E2002 Remote Control"
+  domain: "automation"
+  input:
+    action_sensor:
+      name: "Z2M remote"
+      selector:
+        entity:
+          integration: "mqtt"
+          domain: "sensor"
+          multiple: "false"
+    on:
+      name: "on"
+      default: []
+      selector:
+        action: {}
+    off:
+      name: "off"
+      default: []
+      selector:
+        action: {}
+    brightness_move_up:
+      name: "brightness_move_up"
+      default: []
+      selector:
+        action: {}
+    brightness_move_down:
+      name: "brightness_move_down"
+      default: []
+      selector:
+        action: {}
+    brightness_stop:
+      name: "brightness_stop"
+      default: []
+      selector:
+        action: {}
+    arrow_left_click:
+      name: "arrow_left_click"
+      default: []
+      selector:
+        action: {}
+    arrow_left_hold:
+      name: "arrow_left_hold"
+      default: []
+      selector:
+        action: {}
+    arrow_left_release:
+      name: "arrow_left_release"
+      default: []
+      selector:
+        action: {}
+    arrow_right_click:
+      name: "arrow_right_click"
+      default: []
+      selector:
+        action: {}
+    arrow_right_hold:
+      name: "arrow_right_hold"
+      default: []
+      selector:
+        action: {}
+    arrow_right_release:
+      name: "arrow_right_release"
+      default: []
+      selector:
+        action: {}
+mode: restart
+max_exceeded: silent
+trigger:
+  platform: state
+  entity_id: !input action_sensor
+action:
+  - variables:
+      command: "{{ trigger.to_state.state }}"
+  - choose:
+      - conditions: "{{ command == 'on' }}"
+        sequence: !input on
+      - conditions: "{{ command == 'off' }}"
+        sequence: !input off
+      - conditions: "{{ command == 'brightness_move_up' }}"
+        sequence: !input brightness_move_up
+      - conditions: "{{ command == 'brightness_move_down' }}"
+        sequence: !input brightness_move_down
+      - conditions: "{{ command == 'brightness_stop' }}"
+        sequence: !input brightness_stop
+      - conditions: "{{ command == 'arrow_left_click' }}"
+        sequence: !input arrow_left_click
+      - conditions: "{{ command == 'arrow_left_hold' }}"
+        sequence: !input arrow_left_hold
+      - conditions: "{{ command == 'arrow_left_release' }}"
+        sequence: !input arrow_left_release
+      - conditions: "{{ command == 'arrow_right_click' }}"
+        sequence: !input arrow_right_click
+      - conditions: "{{ command == 'arrow_right_hold' }}"
+        sequence: !input arrow_right_hold
+      - conditions: "{{ command == 'arrow_right_release' }}"
+        sequence: !input arrow_right_release
