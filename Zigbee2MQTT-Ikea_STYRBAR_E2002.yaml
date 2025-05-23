@@ -8,7 +8,6 @@ blueprint:
         device: {}
     on:
       name: "on"
-      default: []
       selector:
         action: {}
 
@@ -18,7 +17,5 @@ triggers:
 
 action:
   - choose:
-      - conditions:
-          - condition: trigger
-            id: on
+      - conditions: "{{ command == 'on' }}"
         sequence: !input on
