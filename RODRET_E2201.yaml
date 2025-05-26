@@ -1,0 +1,22 @@
+blueprint:
+  name: "MQTT - IKEA RODRET E2201"
+  domain: automation
+  input:
+    remote: { name: "Device", selector: { entity: { domain: sensor, integration: mqtt } } }
+    action_on: { name: "Up single-click", default: [], selector: { action: {} } }
+    action_brightness_move_up: { name: "Up hold", default: [], selector: { action: {} } }
+    action_off: { name: "Down click", default: [], selector: { action: {} } }
+    action_brightness_move_down: { name: "Down hold", default: [], selector: { action: {} } }
+    #action_brightness_stop: { name: "Up/Down release", default: [], selector: { action: {} } }
+
+trigger: [{ platform: state, entity_id: !input remote }]
+
+action:
+  - variables: { command: "{{ trigger.to_state.state }}", interval: "00:00:00.5" }
+  - choose: [ { conditions: "{{ command == 'on' }}", sequence: !input action_on } ]
+  - choose: [ { conditions: "{{ command == 'brightness_move_up' }}", sequence: !input action_brightness_move_up } ]
+  - choose: [ { conditions: "{{ command == 'off' }}", sequence: !input action_off } ]
+  - choose: [ { conditions: "{{ command == 'brightness_move_down' }}", sequence: !input action_brightness_move_down } ]
+  #- choose: [ { conditions: "{{ command == 'action_brightness_stop' }}", sequence: !input action_action_brightness_stop } ]
+
+mode: restart
